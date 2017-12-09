@@ -4,7 +4,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
@@ -12,7 +12,7 @@
 
 <meta name="author" content="Benjamin R. Jack" />
 
-<meta name="date" content="2017-01-23" />
+<meta name="date" content="2017-12-09" />
 
 <title>Introduction to ParseMSF</title>
 
@@ -20,46 +20,244 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 </head>
 
@@ -70,248 +268,256 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to ParseMSF</h1>
 <h4 class="author"><em>Benjamin R. Jack</em></h4>
-<h4 class="date"><em>2017-01-23</em></h4>
+<h4 class="date"><em>2017-12-09</em></h4>
 
 
 
-<div id="loading-peptide-information-from-a-thermo-msf" class="section level2">
-<h2>Loading peptide information from a Thermo MSF</h2>
-<p>The ParseMSF package provides several functions for inspecting Thermo MSF files. The most useful of these functions is <code>make_area_table</code>, which constructs a data frame containing all peptides and their corresponding peak areas. This data frame also includes the protein (<code>protein_desc</code>) for each peptide.</p>
-<p><strong>NOTE</strong>: Only Thermo MSF files generated by Proteome Discoverer 1.4.x are supported. Using ParseMSF functions with a file produced by any other version of Proteome Discoverer may produce unexpected results.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(parsemsf)
-
-<span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a Thermo MSF file</span>
-area_table &lt;-<span class="st"> </span><span class="kw">make_area_table</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))
-knitr::<span class="kw">kable</span>(<span class="kw">head</span>(area_table))</code></pre></div>
+<section id="loading-peptide-information-from-a-thermofisher-msf" class="level2">
+<h2>Loading peptide information from a ThermoFisher MSF</h2>
+<p>The ParseMSF package provides several functions for inspecting ThermoFisher MSF files. The most useful of these functions is <code>make_area_table</code>, which constructs a data frame containing all peptides and their corresponding peak areas. This data frame also includes protein information (<code>protein_desc</code>) for each peptide.</p>
+<p><strong>NOTE</strong>: Only ThermoFisher MSF files generated by Proteome Discoverer 1.4.x are supported. Using ParseMSF functions with a file produced by any other version of Proteome Discoverer may produce unexpected results.</p>
+<pre class="sourceCode r" id="cb1"><code class="sourceCode r"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(parsemsf)</div>
+<div class="sourceLine" id="cb1-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a ThermoFisher MSF file</span></div>
+<div class="sourceLine" id="cb1-4" data-line-number="4">area_table &lt;-<span class="st"> </span><span class="kw">make_area_table</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))</div>
+<div class="sourceLine" id="cb1-5" data-line-number="5">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(area_table))</div></code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="right">peptide_id</th>
-<th align="right">spectrum_id</th>
-<th align="left">protein_desc</th>
-<th align="left">sequence</th>
-<th align="right">area</th>
-<th align="right">mass</th>
-<th align="right">m_z</th>
-<th align="right">charge</th>
-<th align="right">intensity</th>
-<th align="right">first_scan</th>
+<th style="text-align: right;">peptide_id</th>
+<th style="text-align: right;">spectrum_id</th>
+<th style="text-align: left;">protein_desc</th>
+<th style="text-align: left;">sequence</th>
+<th style="text-align: right;">area</th>
+<th style="text-align: right;">mass</th>
+<th style="text-align: right;">m_z</th>
+<th style="text-align: right;">charge</th>
+<th style="text-align: right;">intensity</th>
+<th style="text-align: right;">first_scan</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">27146</td>
-<td align="right">15646</td>
-<td align="left">NP_041997.1</td>
-<td align="left">AALTDQVALGK</td>
-<td align="right">55120084</td>
-<td align="right">1086.616</td>
-<td align="right">544.0622</td>
-<td align="right">2</td>
-<td align="right">634147.8</td>
-<td align="right">17577</td>
+<td style="text-align: right;">27146</td>
+<td style="text-align: right;">15646</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">AALTDQVALGK</td>
+<td style="text-align: right;">55120084</td>
+<td style="text-align: right;">1086.616</td>
+<td style="text-align: right;">544.0622</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">634147.8</td>
+<td style="text-align: right;">17577</td>
 </tr>
 <tr class="even">
-<td align="right">27177</td>
-<td align="right">15663</td>
-<td align="left">NP_041997.1</td>
-<td align="left">AALTDQVALGK</td>
-<td align="right">55120084</td>
-<td align="right">1086.615</td>
-<td align="right">544.0622</td>
-<td align="right">2</td>
-<td align="right">721063.0</td>
-<td align="right">17595</td>
+<td style="text-align: right;">27177</td>
+<td style="text-align: right;">15663</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">AALTDQVALGK</td>
+<td style="text-align: right;">55120084</td>
+<td style="text-align: right;">1086.615</td>
+<td style="text-align: right;">544.0622</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">721063.0</td>
+<td style="text-align: right;">17595</td>
 </tr>
 <tr class="odd">
-<td align="right">35484</td>
-<td align="right">20122</td>
-<td align="left">NP_041997.1</td>
-<td align="left">ANFQADQIIAK</td>
-<td align="right">37046635</td>
-<td align="right">1218.648</td>
-<td align="right">610.5803</td>
-<td align="right">2</td>
-<td align="right">152654.2</td>
-<td align="right">22420</td>
+<td style="text-align: right;">35484</td>
+<td style="text-align: right;">20122</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">ANFQADQIIAK</td>
+<td style="text-align: right;">37046635</td>
+<td style="text-align: right;">1218.648</td>
+<td style="text-align: right;">610.5803</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">152654.2</td>
+<td style="text-align: right;">22420</td>
 </tr>
 <tr class="even">
-<td align="right">35511</td>
-<td align="right">20136</td>
-<td align="left">NP_041997.1</td>
-<td align="left">ANFQADQIIAK</td>
-<td align="right">37046635</td>
-<td align="right">1218.648</td>
-<td align="right">610.5803</td>
-<td align="right">2</td>
-<td align="right">169355.0</td>
-<td align="right">22436</td>
+<td style="text-align: right;">35511</td>
+<td style="text-align: right;">20136</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">ANFQADQIIAK</td>
+<td style="text-align: right;">37046635</td>
+<td style="text-align: right;">1218.648</td>
+<td style="text-align: right;">610.5803</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">169355.0</td>
+<td style="text-align: right;">22436</td>
 </tr>
 <tr class="odd">
-<td align="right">37869</td>
-<td align="right">21360</td>
-<td align="left">NP_041997.1</td>
-<td align="left">TQAAYLAPGENLDDK</td>
-<td align="right">NA</td>
-<td align="right">1605.775</td>
-<td align="right">NA</td>
-<td align="right">2</td>
-<td align="right">382864.4</td>
-<td align="right">23744</td>
+<td style="text-align: right;">37869</td>
+<td style="text-align: right;">21360</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">TQAAYLAPGENLDDK</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">1605.775</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">382864.4</td>
+<td style="text-align: right;">23744</td>
 </tr>
 <tr class="even">
-<td align="right">37913</td>
-<td align="right">21384</td>
-<td align="left">NP_041997.1</td>
-<td align="left">TQAAYLAPGENLDDK</td>
-<td align="right">NA</td>
-<td align="right">1605.775</td>
-<td align="right">NA</td>
-<td align="right">2</td>
-<td align="right">282891.8</td>
-<td align="right">23769</td>
+<td style="text-align: right;">37913</td>
+<td style="text-align: right;">21384</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">TQAAYLAPGENLDDK</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">1605.775</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">282891.8</td>
+<td style="text-align: right;">23769</td>
 </tr>
 </tbody>
 </table>
 <p>See the documentation for <code>make_area_table</code> for a description of each column.</p>
-</div>
-<div id="estimating-protein-abundances" class="section level2">
+</section>
+<section id="estimating-protein-abundances" class="level2">
 <h2>Estimating protein abundances</h2>
-<p>The peak area information stored in one or more Thermo MSF files can be used to estimate protein abundances. The <code>combine_tech_reps</code> function estimates these abundances across one or more technical replicates. Technical replicates are different mass spec injections of the same biological sample. The <code>combine_tech_reps</code> function will produce more accurate protein abundance estimates if it is provided with multiple technical replicates.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a Thermo MSF file</span>
-abundances &lt;-<span class="st"> </span><span class="kw">quantitate</span>(<span class="kw">c</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>), 
-                           <span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db2.msf&quot;</span>)))</code></pre></div>
-<pre><code>## Now processing:  /Users/ben/Box Sync/projects/2017/parsemsf/parsemsf-package/inst/extdata/test_db.msf</code></pre>
-<pre><code>## Now processing:  /Users/ben/Box Sync/projects/2017/parsemsf/parsemsf-package/inst/extdata/test_db2.msf</code></pre>
+<p>The peak area information stored in one or more ThermoFisher MSF files can be used to estimate protein abundances. The <code>combine_tech_reps</code> function estimates these abundances across one or more technical replicates. Technical replicates are typically different mass spectrometry injections of the same biological sample. The <code>combine_tech_reps</code> function will produce more accurate protein abundance estimates if it is provided with multiple technical replicates.</p>
+<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a ThermoFisher MSF file</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2">abundances &lt;-<span class="st"> </span><span class="kw">quantitate</span>(<span class="kw">c</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>), </div>
+<div class="sourceLine" id="cb2-3" data-line-number="3">                           <span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db2.msf&quot;</span>)))</div></code></pre>
+<pre><code>## Now processing:  /private/var/folders/vb/tc7jl5s13nl5x1znxrszfg2c0000gn/T/RtmpTJHmJu/Rinst1336c1644b688/parsemsf/extdata/test_db.msf</code></pre>
+<pre><code>## Now processing:  /private/var/folders/vb/tc7jl5s13nl5x1znxrszfg2c0000gn/T/RtmpTJHmJu/Rinst1336c1644b688/parsemsf/extdata/test_db2.msf</code></pre>
 <pre><code>## Quantitating...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(<span class="kw">head</span>(abundances))</code></pre></div>
+<pre class="sourceCode r" id="cb6"><code class="sourceCode r"><div class="sourceLine" id="cb6-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(abundances))</div></code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">protein_desc</th>
-<th align="right">area_mean</th>
-<th align="right">area_sd</th>
-<th align="right">peps_per_rep</th>
+<th style="text-align: left;">protein_desc</th>
+<th style="text-align: right;">area_mean</th>
+<th style="text-align: right;">area_sd</th>
+<th style="text-align: right;">peps_per_rep</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">NP_041997.1</td>
-<td align="right">0.0917469</td>
-<td align="right">0.0207773</td>
-<td align="right">3</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: right;">0.0917469</td>
+<td style="text-align: right;">0.0207773</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
-<p>Abundances are estimated by taking the top three most abundant peptides by area, and averaging them together (<code>area_mean</code>) [reference]. If provided multiple technical replicates, <code>quantitate</code> will, by default, estimate protein abundances by matching peptides across technical replicates. That is, it will only average areas from peptides that are present in both technical replicates. The number unique peptides used to estimate the protein abundances are given by <code>peps_per_rep</code>.</p>
-<p>Protein abundances can also be estimated from a single Thermo MSF File.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a Thermo MSF file</span>
-abundances &lt;-<span class="st"> </span><span class="kw">quantitate</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))</code></pre></div>
-<pre><code>## Now processing:  /Users/ben/Box Sync/projects/2017/parsemsf/parsemsf-package/inst/extdata/test_db.msf</code></pre>
+<p>Abundances are estimated by taking the top three most abundant peptides by area, and averaging them together (<code>area_mean</code>) <span class="citation" data-cites="silva">(Silva et al. 2006)</span>. If provided multiple technical replicates, <code>quantitate</code> will, by default, estimate protein abundances by matching peptides across technical replicates. That is, it will only average areas from peptides that are present in both technical replicates. The number unique peptides used to estimate the protein abundances are given by <code>peps_per_rep</code>.</p>
+<p>Protein abundances can also be estimated from a single ThermoFisher MSF File.</p>
+<pre class="sourceCode r" id="cb7"><code class="sourceCode r"><div class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Replace `parsemsf_example(&quot;test_db.msf&quot;)` with the path to a ThermoFisher MSF file</span></div>
+<div class="sourceLine" id="cb7-2" data-line-number="2">abundances &lt;-<span class="st"> </span><span class="kw">quantitate</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))</div></code></pre>
+<pre><code>## Now processing:  /private/var/folders/vb/tc7jl5s13nl5x1znxrszfg2c0000gn/T/RtmpTJHmJu/Rinst1336c1644b688/parsemsf/extdata/test_db.msf</code></pre>
 <pre><code>## Quantitating...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::<span class="kw">kable</span>(<span class="kw">head</span>(abundances))</code></pre></div>
+<pre class="sourceCode r" id="cb10"><code class="sourceCode r"><div class="sourceLine" id="cb10-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(abundances))</div></code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">protein_desc</th>
-<th align="right">area_mean</th>
-<th align="right">area_sd</th>
-<th align="right">peps_per_rep</th>
+<th style="text-align: left;">protein_desc</th>
+<th style="text-align: right;">area_mean</th>
+<th style="text-align: right;">area_sd</th>
+<th style="text-align: right;">peps_per_rep</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">NP_041997.1</td>
-<td align="right">0.0963672</td>
-<td align="right">0.0250473</td>
-<td align="right">3</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: right;">0.0963672</td>
+<td style="text-align: right;">0.0250473</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="inspecting-distribution-of-peptides-within-a-protein" class="section level2">
+</section>
+<section id="inspecting-distribution-of-peptides-within-a-protein" class="level2">
 <h2>Inspecting distribution of peptides within a protein</h2>
 <p>The ParseMSF package includes a function for inspecting the distribution of peptides within a single protein. The <code>map_peptides</code> function produces a data frame of peptides with their respective locations within the protein sequence.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">peptide_locs &lt;-<span class="st"> </span><span class="kw">map_peptides</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))
-
-<span class="co"># Select columns with start and end locations</span>
-peptide_locs &lt;-<span class="st"> </span>peptide_locs[<span class="kw">c</span>(<span class="st">&quot;peptide_id&quot;</span>, <span class="st">&quot;protein_desc&quot;</span>, 
-                               <span class="st">&quot;peptide_sequence&quot;</span>, <span class="st">&quot;start&quot;</span>, <span class="st">&quot;end&quot;</span>)]
-
-knitr::<span class="kw">kable</span>(<span class="kw">head</span>(peptide_locs))</code></pre></div>
+<pre class="sourceCode r" id="cb11"><code class="sourceCode r"><div class="sourceLine" id="cb11-1" data-line-number="1">peptide_locs &lt;-<span class="st"> </span><span class="kw">map_peptides</span>(<span class="kw">parsemsf_example</span>(<span class="st">&quot;test_db.msf&quot;</span>))</div>
+<div class="sourceLine" id="cb11-2" data-line-number="2"></div>
+<div class="sourceLine" id="cb11-3" data-line-number="3"><span class="co"># Select columns with start and end locations</span></div>
+<div class="sourceLine" id="cb11-4" data-line-number="4">peptide_locs &lt;-<span class="st"> </span>peptide_locs[<span class="kw">c</span>(<span class="st">&quot;peptide_id&quot;</span>, <span class="st">&quot;protein_desc&quot;</span>, </div>
+<div class="sourceLine" id="cb11-5" data-line-number="5">                               <span class="st">&quot;peptide_sequence&quot;</span>, <span class="st">&quot;start&quot;</span>, <span class="st">&quot;end&quot;</span>)]</div>
+<div class="sourceLine" id="cb11-6" data-line-number="6"></div>
+<div class="sourceLine" id="cb11-7" data-line-number="7">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(peptide_locs))</div></code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="right">peptide_id</th>
-<th align="left">protein_desc</th>
-<th align="left">peptide_sequence</th>
-<th align="right">start</th>
-<th align="right">end</th>
+<th style="text-align: right;">peptide_id</th>
+<th style="text-align: left;">protein_desc</th>
+<th style="text-align: left;">peptide_sequence</th>
+<th style="text-align: right;">start</th>
+<th style="text-align: right;">end</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">27146</td>
-<td align="left">NP_041997.1</td>
-<td align="left">AALTDQVALGK</td>
-<td align="right">172</td>
-<td align="right">182</td>
+<td style="text-align: right;">27146</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">AALTDQVALGK</td>
+<td style="text-align: right;">172</td>
+<td style="text-align: right;">182</td>
 </tr>
 <tr class="even">
-<td align="right">27177</td>
-<td align="left">NP_041997.1</td>
-<td align="left">AALTDQVALGK</td>
-<td align="right">172</td>
-<td align="right">182</td>
+<td style="text-align: right;">27177</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">AALTDQVALGK</td>
+<td style="text-align: right;">172</td>
+<td style="text-align: right;">182</td>
 </tr>
 <tr class="odd">
-<td align="right">35484</td>
-<td align="left">NP_041997.1</td>
-<td align="left">ANFQADQIIAK</td>
-<td align="right">314</td>
-<td align="right">324</td>
+<td style="text-align: right;">35484</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">ANFQADQIIAK</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">324</td>
 </tr>
 <tr class="even">
-<td align="right">35511</td>
-<td align="left">NP_041997.1</td>
-<td align="left">ANFQADQIIAK</td>
-<td align="right">314</td>
-<td align="right">324</td>
+<td style="text-align: right;">35511</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">ANFQADQIIAK</td>
+<td style="text-align: right;">314</td>
+<td style="text-align: right;">324</td>
 </tr>
 <tr class="odd">
-<td align="right">37869</td>
-<td align="left">NP_041997.1</td>
-<td align="left">TQAAYLAPGENLDDK</td>
-<td align="right">69</td>
-<td align="right">83</td>
+<td style="text-align: right;">37869</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">TQAAYLAPGENLDDK</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">83</td>
 </tr>
 <tr class="even">
-<td align="right">37913</td>
-<td align="left">NP_041997.1</td>
-<td align="left">TQAAYLAPGENLDDK</td>
-<td align="right">69</td>
-<td align="right">83</td>
+<td style="text-align: right;">37913</td>
+<td style="text-align: left;">NP_041997.1</td>
+<td style="text-align: left;">TQAAYLAPGENLDDK</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">83</td>
 </tr>
 </tbody>
 </table>
 <p>We can plot these peptide locations with the ggplot2 and dplyr packages.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(dplyr)
-
-peptide_summary &lt;-<span class="st"> </span>peptide_locs %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(start, end) %&gt;%
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">spectral_count =</span> <span class="kw">n</span>()) <span class="co"># Count peptides</span>
-
-pep_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(peptide_summary,
-       <span class="kw">aes</span>(<span class="dt">x =</span> start, <span class="dt">xend =</span> end, <span class="dt">y =</span> spectral_count, <span class="dt">yend =</span> spectral_count)) +
-<span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">1</span>) +
-<span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">5</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;peptide position within protein&quot;</span>) +
-<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;peptide count&quot;</span>)
-
-pep_plot</code></pre></div>
+<pre class="sourceCode r" id="cb12"><code class="sourceCode r"><div class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</div>
+<div class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">library</span>(dplyr)</div>
+<div class="sourceLine" id="cb12-3" data-line-number="3"></div>
+<div class="sourceLine" id="cb12-4" data-line-number="4">peptide_summary &lt;-<span class="st"> </span>peptide_locs <span class="op">%&gt;%</span><span class="st"> </span></div>
+<div class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(start, end) <span class="op">%&gt;%</span></div>
+<div class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">spectral_count =</span> <span class="kw">n</span>()) <span class="co"># Count peptides</span></div>
+<div class="sourceLine" id="cb12-7" data-line-number="7"></div>
+<div class="sourceLine" id="cb12-8" data-line-number="8">pep_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(peptide_summary,</div>
+<div class="sourceLine" id="cb12-9" data-line-number="9">       <span class="kw">aes</span>(<span class="dt">x =</span> start, <span class="dt">xend =</span> end, <span class="dt">y =</span> spectral_count, <span class="dt">yend =</span> spectral_count)) <span class="op">+</span></div>
+<div class="sourceLine" id="cb12-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></div>
+<div class="sourceLine" id="cb12-11" data-line-number="11"><span class="st">  </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">5</span>) <span class="op">+</span><span class="st"> </span></div>
+<div class="sourceLine" id="cb12-12" data-line-number="12"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;peptide position within protein&quot;</span>) <span class="op">+</span></div>
+<div class="sourceLine" id="cb12-13" data-line-number="13"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;peptide count&quot;</span>)</div>
+<div class="sourceLine" id="cb12-14" data-line-number="14"></div>
+<div class="sourceLine" id="cb12-15" data-line-number="15">pep_plot</div></code></pre>
 <p><img src="data:image/png;base64,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DqpurAlGLQef0Ai1ItxwXHXVVZqMmkRY50RABGIJpKoBcTdruOMTeqONNrJVb1ZExUXH3nvvbY466qjYCHRCBERABOIIpDZAOCJ79tln7YRUloClVtS3b1/7Fxe4jouACIhAEoFEA4T/5++++67B/WuuuabhzwmLnNFf0r59e3dIvyIgAiKQikCiARo4cKB1w1ospCFDhpi77rqr2GU6LwIiIAINCCQaINb7cj34d955p13/a8yYMWb99de3AxLxE33dddfZT/ENQtWOCIiACKQgkGiA3PrtfLLbbrvtzC233BJ+8WKFUwYmLl682Lpl3WyzzVJEp0tEQARE4EcCqT7DM26AKRcsTpgvDEaUU/p8KtoXARFIQyCVAWIFU2o7J5xwgjVEBIxRYm348847z+y8885p4tI1IiACItCAQCoDxB033nijXR++S5cupkePHtZH9E477WT40zigBky1IwIikJJAYh9QNIzVV1/dzgdjTthrr71m54SxKsY666wTvUzbIiACIpCaQKIBeu655wxzkNZdd13zr3/9KxwT5IwO68XzRz9Q7969U0eqC0VABEQAAokGCBccffr0sXO+dtttt7D/Jx+dxgHlE9G+CIhAGgKJBujll18Ofat8/vnnseFVezZ8bMQ6IQIi0KwJJHZC41AJVxwIX7pwdcAcsOgfM+IPOOCAZg1ByouACNSGQGINiD6gxx9/3Gr2zDPP2E/uUY98DEK87777Co4PKpac9957z7DO/IABA+wyz8Wu13kREIGWRyDRAK2xxhqGdd9x8ITrjfHjx1snVA4DNaTu3bubU0891R1K9UuYOLPiy9rVV19tRo0aZd18pLpZF4mACLQYAokGqFOnTmbixIk2sbvuuqvtjOarWDkyefJkM2vWLDutg3CY7sFKG/gZkoiACNQXgUQDFEXxwAMPmC+//NKugPHqq68ajNMGG2xgNt100+hlRbf5hI9zMydM8XATXt0x+prmzJnjdq37yLQd3ccff7x58cUX7b0dO3Y0hxxyiPnjH/8YhpW/sf3228fW4OLiJHziyZdf//rX5sMPPzQ0XYvJyJEjzT777FPssvA8vnX5i9MpvLDAxtixY23ttcCpJh9Cl2WXXdbcf//9TQ7jyCOPjPW2MGzYMHPggQemDttx4ddtp765Shc6f8hZ0cfpwW8xl6xMPqd1UkhouVx/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" /><!-- --></p>
+</section>
+<section id="references" class="level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-silva">
+<p>Silva, JC, MV Gorenstein, GZ Li, JP Vissers, and SJ Geromanos. 2006. “Absolute Quantification of Proteins by LCMSE: A Virtue of Parallel MS Acquisition.” <em>Mol Cell Proteomics</em> 5 (1):144–56. <a href="https://doi.org/10.1074/mcp.M500230-MCP200" class="uri">https://doi.org/10.1074/mcp.M500230-MCP200</a>.</p>
 </div>
+</div>
+</section>
 
 
 
@@ -320,7 +526,7 @@ pep_plot</code></pre></div>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

@@ -1,7 +1,7 @@
 
 #' Map peptides to their locations within a protein
 #'
-#' Takes a Thermo MSF file and finds the location of each peptide within its corresponding protein sequence. In cases where a single peptide maps to multiple locations within a protein sequence, only the first location is reported.
+#' Takes a ThermoFisher MSF file and finds the location of each peptide within its corresponding protein sequence. In cases where a single peptide maps to multiple locations within a protein sequence, only the first location is reported. If a peptide maps ambiguously to multiple proteins, all locations are reported with data from each peptide-protein combination on a separate row.
 #'
 #' @inheritParams make_pep_table
 #'
@@ -27,7 +27,7 @@ map_peptides <- function(msf_file, min_conf = "High", prot_regex = "") {
   pep_table <- make_pep_table(msf_file, min_conf, collapse = FALSE) %>%
     rename_(.dots = setNames(list(~sequence), c("peptide_sequence")))
 
-  my_db <- src_sqlite(msf_file)
+  my_db <- DBI::dbConnect(RSQLite::SQLite(), msf_file)
 
   prots <- tbl(my_db, "Proteins") %>%
     select_(~ProteinID, ~Sequence) %>%
@@ -40,6 +40,7 @@ map_peptides <- function(msf_file, min_conf = "High", prot_regex = "") {
                                   ~str_locate(protein_sequence, peptide_sequence)[2]),
                              c("start",
                                "end")))
+  DBI::dbDisconnect(my_db)
 
   return(pep_table)
 }

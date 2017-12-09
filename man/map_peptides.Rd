@@ -7,9 +7,9 @@
 map_peptides(msf_file, min_conf = "High", prot_regex = "")
 }
 \arguments{
-\item{msf_file}{A file path to a Thermo MSF file.}
+\item{msf_file}{A file path to a ThermoFisher MSF file.}
 
-\item{min_conf}{"High", "Medium", or "Low". The mininum peptide confidence level to retrieve from MSF file.}
+\item{min_conf}{"High", "Medium", or "Low". The minimum peptide confidence level to retrieve from MSF file.}
 
 \item{prot_regex}{Regular expression where the first group matches a protein name or ID from the protein description. Regex must contain ONE group. The protein description is typically generated from a fasta reference file that was used for the database search.}
 }
@@ -28,9 +28,8 @@ A dataframe containing start and stop positions (relative to the parent protein 
 \item{end}{end position of peptide within protein sequence}
 }
 \description{
-Takes a Thermo MSF file and finds the location of each peptide within its corresponding protein sequence. In cases where a single peptide maps to multiple locations within a protein sequence, only the first location is reported.
+Takes a ThermoFisher MSF file and finds the location of each peptide within its corresponding protein sequence. In cases where a single peptide maps to multiple locations within a protein sequence, only the first location is reported. If a peptide maps ambiguously to multiple proteins, all locations are reported with data from each peptide-protein combination on a separate row.
 }
 \examples{
 map_peptides(parsemsf_example("test_db.msf"))
 }
-

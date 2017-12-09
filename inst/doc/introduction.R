@@ -1,19 +1,19 @@
 ## ------------------------------------------------------------------------
 library(parsemsf)
 
-# Replace `parsemsf_example("test_db.msf")` with the path to a Thermo MSF file
+# Replace `parsemsf_example("test_db.msf")` with the path to a ThermoFisher MSF file
 area_table <- make_area_table(parsemsf_example("test_db.msf"))
 knitr::kable(head(area_table))
 
 ## ------------------------------------------------------------------------
-# Replace `parsemsf_example("test_db.msf")` with the path to a Thermo MSF file
+# Replace `parsemsf_example("test_db.msf")` with the path to a ThermoFisher MSF file
 abundances <- quantitate(c(parsemsf_example("test_db.msf"), 
                            parsemsf_example("test_db2.msf")))
 
 knitr::kable(head(abundances))
 
 ## ------------------------------------------------------------------------
-# Replace `parsemsf_example("test_db.msf")` with the path to a Thermo MSF file
+# Replace `parsemsf_example("test_db.msf")` with the path to a ThermoFisher MSF file
 abundances <- quantitate(parsemsf_example("test_db.msf"))
 
 knitr::kable(head(abundances))
